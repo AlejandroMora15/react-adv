@@ -1,14 +1,12 @@
-import { ReactElement } from 'react'
+import { ProductButtonsProps } from '../components/ProductButtons'
+import { ProductCardProps } from '../components/ProductCard'
+import { ProductImageProps } from '../components/ProductImage'
+import { ProductTitleProps } from '../components/ProductTitle'
 
 export interface Product {
   id: string,
   title: string,
   img?: string
-}
-
-export interface ProductCardProps {
-  product: Product
-  children?: ReactElement | ReactElement[]
 }
 
 export interface ProductContextProps {
@@ -18,12 +16,8 @@ export interface ProductContextProps {
 }
 
 export interface ProductCardHOCProps {
-  // eslint-disable-next-line no-undef
   ({ children, product }: ProductCardProps): JSX.Element;
-  // eslint-disable-next-line no-undef
-  Title: ({ title }: { title?: string | undefined }) => JSX.Element
-  // eslint-disable-next-line no-undef
-  Image: ({ img }: { img?: string | undefined }) => JSX.Element
-  // eslint-disable-next-line no-undef
-  Buttons: () => JSX.Element
+  Title: (Props: ProductTitleProps) => JSX.Element
+  Image: (Props: ProductImageProps) => JSX.Element
+  Buttons: (Props : ProductButtonsProps) => JSX.Element
 }
